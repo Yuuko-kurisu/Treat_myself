@@ -12,6 +12,10 @@ with st.expander("奖励规则"):
     st.markdown("""
     **十次保底必须UR: 清除任意购物车一项!!!**
 """)
+    
+    st.markdown("""
+    **(补充规则)：如果达到保底但是奖励值不够——奖励继续学习**
+""")
 
 # 
 
@@ -140,8 +144,8 @@ def get_present(test_case, scores, remaining, distribution='weight'):
                 present['奖励'] = test_case[test_case['Rate'] == 'UR'].sample(1).iloc[0]['奖励项']
                 present['等级'] = 'UR'
             else:
-                present['奖励'] = '积分不够，奖励好好学习'
-                present['等级'] = 'SSSR'
+                present['奖励'] = '继续学习'
+                present['等级'] = 'N'
     return present['奖励'], present['等级']
 
 # scores = 10
